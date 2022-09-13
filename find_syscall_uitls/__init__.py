@@ -2,16 +2,15 @@
 from find_syscall_uitls.tables.arm64 import syscalls_arm64
 from find_syscall_uitls.tables.arm import syscalls_arm
 
-class NoSystemCall(Exception):
-    """Exception not system call."""
+# class NoSystemCall(Exception):
+#     """Exception not system call."""
 
-    pass
+#     pass
 
 
-class NotArch(Exception):
-    """Exception not arch."""
-
-    pass
+# class NotArch(Exception):
+#     """Exception not arch."""
+#     pass
 
 class syscalls(dict):
     def __init__(self):
@@ -22,12 +21,9 @@ class syscalls(dict):
             }
         }
 
-
     def get(self, arch: str, num:int):
         try:
             return self.syscalls["archs"][arch][str(num)]
         except KeyError:
-            if arch not in self.syscalls["archs"]:
-                raise NotArch
-            else:
-                raise NoSystemCall
+            pass
+        return ""
